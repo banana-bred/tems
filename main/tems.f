@@ -436,9 +436,9 @@ contains
     write(stdout,*)
     write(stdout,'(A)') 'EXAMPLES'
     write(stdout,'(2X, A)') PROGNAME
-    write(stdout,'(2X, A)') PROGNAME, ' 532 nm'
-    write(stdout,'(2X, A)') PROGNAME, ' 2.45 GHz'
-    write(stdout,'(2X, A)') PROGNAME, ' 10 keV'
+    write(stdout,'(2X, A, A)') PROGNAME, ' 532 nm'
+    write(stdout,'(2X, A, A)') PROGNAME, ' 2.45 GHz'
+    write(stdout,'(2X, A, A)') PROGNAME, ' 10 keV'
     write(stdout,*)
   end subroutine print_help
 
