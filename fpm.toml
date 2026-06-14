@@ -1,0 +1,16 @@
+name = "tems"
+version = "0.1.0"
+license = "mit"
+author = "Josh FORER"
+maintainer = "j.forer@posteo.net"
+copyright = "Copyright 2026, Josh FORER"
+
+[fortran]
+implicit-typing = false
+implicit-external = false
+source-form = "free"
+
+[[executable]]
+main="tems.f"
+source-dir="main"
+name="tems"
