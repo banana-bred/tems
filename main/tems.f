@@ -315,7 +315,7 @@ contains
     end select
 
     write(tmp,'(F7.3)') v
-    s = trim(adjustl(tmp)) // ' ' // trim(pfx) // unit
+    s = trim(tmp) // ' ' // trim(pfx) // unit
 
   end function pretty
 
