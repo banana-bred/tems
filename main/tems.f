@@ -44,7 +44,7 @@ program tems
   real(dp), parameter :: LAM_HI(*) = [1.0e5_dp,  1.0e-1_dp, 1.0e-3_dp, 7.0e-7_dp, 4.0e-7_dp, 1.0e-8_dp,  1.0e-11_dp] !! λ ubound
 
   ! -- table
-  integer,      parameter :: TBL_WIDTH = 66
+  integer,      parameter :: TBL_WIDTH = 74
   character(*), parameter :: TBL_SEP   = ' | '
   character(*), parameter :: TBL_END   = ' |'
 
@@ -153,14 +153,14 @@ contains
     write(stdout,'(A)') bold('  Electromagnetic Spectrum')
     write(stdout,*)
     write(stdout,'(A)') '  '//repeat('-', TBL_WIDTH)
-    write(stdout,'(A)') '  '// &
+write(stdout,'(A)') '  '// &
       bold('        Band')//TBL_SEP// &
-      bold('     Wavelength        ')//TBL_SEP// &
-      bold('     Frequency         ')//TBL_END
+      bold('        Wavelength         ')//TBL_SEP// &
+      bold('         Frequency         ')//TBL_END
     write(stdout,'(A)') '  '// &
       '            '//TBL_SEP// &
-      '                       '//TBL_SEP// &
-      bold('   Photon energy       ')//TBL_END
+      '                           '//TBL_SEP// &
+      bold('       Photon energy       ')//TBL_END
     write(stdout,'(A)') '  '//repeat('-', TBL_WIDTH)
     do j = 1, NBANDS
       if(flip) then
@@ -222,12 +222,12 @@ contains
     e_hi = h_Js * f_hi / J2eV
 
     ! -- color code and reset as separate items so that the visible terminal width is constant
-    write(stdout, '(A, A, A12, A, A, A23, A, A23, A)') '  ',        &
+    write(stdout, '(A, A, A12, A, A, A27, A, A27, A)') '  ',        &
       copen(trim(BCOL(k))//';1'), BNAME(k), creset(),      TBL_SEP, & ! Band
       pretty(LAM_HI(k),'m')//' - '//pretty(LAM_LO(k),'m'), TBL_SEP, & ! λ
       pretty(f_lo,'Hz')//' - '//pretty(f_hi,'Hz'),         TBL_END    ! frequency
 
-    write(stdout, '(A, A12, A, A23, A, A23, A)') '  ', &
+    write(stdout, '(A, A12, A, A27, A, A27, A)') '  ', &
       '', TBL_SEP,                                     &   ! blank
       '', TBL_SEP,                                     &   ! blank
       pretty(e_lo,'eV')//' - '//pretty(e_hi,'eV'), TBL_END ! energy
@@ -277,7 +277,7 @@ contains
     !! Format a value with an SI prefix and unit
     real(dp),         intent(in) :: val
     character(len=*), intent(in) :: unit
-    character(len=10) :: s
+    character(len=11) :: s
     real(dp) :: v
     integer :: e3
     character(len=2) :: pfx
